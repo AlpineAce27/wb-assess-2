@@ -14,9 +14,13 @@
 //   ]);
 //   => ['Gale Dekarios', 'Wyll Ravengard', 'Karlach Cliffgate'];
 function getNames(people) {
-  let newArray = [] //each element of this array with contain a first and last name of a person
+  let newArray = [] 
+  //each element of this array with contain a first and last name of a person
   people.forEach(element => {
-    newArray.push(people[element].firstName, + " ", + people[element].lastName)
+    //console.log(element)
+    let newStr = element.firstName + " " + element.lastName
+    //console.log(newStr)
+    newArray.push(newStr)
   });
   return newArray
 }
@@ -55,7 +59,7 @@ function getNameUsingDestructuring(person) {
 function getPeopleByLocation(people, location) {
   let newArray = []
   people.forEach((element) => {
-    if(element.location = location){
+    if(element.location === location){
       newArray.push(element)
     }
   })
@@ -90,19 +94,17 @@ const EN_PIRATE_LOOKUP = {
 };
 
 function translateToPirateTalk(phrase) {
-
-  //go through the string, and split it between every space to make an array of words
   let phraseArray = phrase.split(" ")
-
-  //check each element of the array to see if it matches any of the key names in the EN_PIRATE_LOOKUP object
-  phraseArray.forEach((element) => {
-    EN_PIRATE_LOOKUP.forEach((key) => {
-      //if it matches a key, replace that word with the value of the matching key
-      if(element === key)
-        phraseArray.element = EN_PIRATE_LOOKUP.key
+  phraseArray.forEach((element, i) => {
+    //console.log(element)
+    if(element in EN_PIRATE_LOOKUP){
+      let key = element.toString()
+      //console.log("Key: " + key)
+      //console.log(element + " is translated to " + EN_PIRATE_LOOKUP[key])
+      console.log(phraseArray.element)
+      phraseArray[i] = EN_PIRATE_LOOKUP[key]      
+      }
     })
-  })
-   //after you've checked every word, combine the array back into a string and return the new string
    return(phraseArray.join(" "))
 }
 
@@ -114,11 +116,19 @@ function translateToPirateTalk(phrase) {
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
 function wordCount(str) {
-  //break a phrase into an array of words
-  //go through the words one by one
-  //if it does'nt exist in the object yet, create a new property with the word and the count at 1
-  //if it already exists in the object, add one to that words count
-  //return the object
+  let outputObj = {}
+  wordArray = str.split(" ")
+  wordArray.forEach((word) => {
+    if(word in outputObj){
+      outputObj[word] = outputObj[word] + 1
+      console.log("1 was added to the " + word + " count")
+    }
+    else{
+      outputObj[word] = 1
+      console.log(word + " was created as a property")
+    }
+  })
+  return outputObj
 }
 
 // Given an object representing a bug, return true if the given bug is
@@ -142,13 +152,13 @@ function wordCount(str) {
 //   }, 1);
 //   => true
 function isBugAvailable(bug, month) {
-  //search the bug object for the months property
-  //check to see if this months array contains the input given by the user
-
-  //if the array does contain the month, return true
-  //else return false
+  if (bug.availability.months.includes(month)){
+    return true
+  }
+  else {
+    return false
+  }
 }
-
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
 // year, and the values should be the names of bugs available in that month.
