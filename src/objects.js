@@ -16,7 +16,7 @@
 function getNames(people) {
   let newArray = [] //each element of this array with contain a first and last name of a person
   people.forEach(element => {
-    newArray.push(people[element].firstName + " " + people[element].lastName])
+    newArray.push(people[element].firstName, + " ", + people[element].lastName)
   });
   return newArray
 }
