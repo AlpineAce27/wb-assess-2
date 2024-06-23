@@ -117,15 +117,15 @@ function translateToPirateTalk(phrase) {
 //   => { hello: 1, world: 1 }
 function wordCount(str) {
   let outputObj = {}
-  wordArray = str.split(" ")
+  let wordArray = str.split(" ")
   wordArray.forEach((word) => {
     if(word in outputObj){
       outputObj[word] = outputObj[word] + 1
-      console.log("1 was added to the " + word + " count")
+      //console.log("1 was added to the " + word + " count")
     }
     else{
       outputObj[word] = 1
-      console.log(word + " was created as a property")
+      //console.log(word + " was created as a property")
     }
   })
   return outputObj
@@ -200,8 +200,22 @@ function isBugAvailable(bug, month) {
 //     12: [],
 //   }
 
-function buildBugHuntCalendar(bugs) {}
-
+function buildBugHuntCalendar(bugs) {
+  let outPutObj = { 
+      }
+  //console.log(bugs)
+  for(let i = 1; i<=12; i++){
+    outPutObj[i.toString()] = []
+    //console.log(outPutObj)
+    bugs.forEach((bug) => {
+      if(bug.availability.months.includes(i)){
+        outPutObj[i.toString()].push(bug.name)    
+        //console.log("You can hunt " + bug.name + " in the " + i + " month")
+      }
+    })
+  }
+  return outPutObj
+}
 export {
   buildBugHuntCalendar,
   getNameUsingDestructuring,
