@@ -13,7 +13,13 @@
 //     { firstName: 'Karlach', lastName: 'Cliffgate', location: 'Avernus' }
 //   ]);
 //   => ['Gale Dekarios', 'Wyll Ravengard', 'Karlach Cliffgate'];
-function getNames(people) {}
+function getNames(people) {
+  let newArray = [] //each element of this array with contain a first and last name of a person
+  people.forEach(element => {
+    newArray.push(people[element].firstName + " " + people[element].lastName])
+  });
+  return newArray
+}
 
 // Given an object representing a person, return their full name (first name and last name).
 // You MUST use object destructuring in your solution.
@@ -24,7 +30,10 @@ function getNames(people) {}
 // Ex.:
 //   getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
 //   => 'Gale Dekarios'
-function getNameUsingDestructuring(person) {}
+function getNameUsingDestructuring(person) {
+  let {firstName, lastName} = person
+  return(firstName + " " + lastName)
+}
 
 // Given an array of objects representing people, return a new array of the
 // people matching the given location.
@@ -43,7 +52,15 @@ function getNameUsingDestructuring(person) {}
 //     { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
 //     { firstName: 'Astarion', lastName: 'Ancunin', location: "Baldur's Gate" }
 //   ];
-function getPeopleByLocation(people, location) {}
+function getPeopleByLocation(people, location) {
+  let newArray = []
+  people.forEach((element) => {
+    if(element.location = location){
+      newArray.push(element)
+    }
+  })
+  return newArray
+}
 
 // Translate a phrase to pirate talk.
 //
@@ -72,7 +89,17 @@ const EN_PIRATE_LOOKUP = {
   hello: 'ahoy',
 };
 
-function translateToPirateTalk(phrase) {}
+function translateToPirateTalk(phrase) {
+  //go through the string, and split it between every space to make an array of words
+
+  //check each element of the array to see if it matches any of the key names in the EN_PIRATE_LOOKUP object
+
+  //if it matches a key, replace that word with the value of the matching key
+
+  //if it doesn't match a key, leave the word as is
+
+  //after you've checked every word, combine the array back into a string and return the new string
+}
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can

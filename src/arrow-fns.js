@@ -56,7 +56,13 @@ function evens(nums) {
 // Ex.:
 //   createGreetings(['Clive', 'Jill', 'Torgal']);
 //   => ['Hello, Clive!', 'Hello, Jill!', 'Hello, Torgal!']
-function createGreetings(names) {}
+function createGreetings(names) {
+    let newArray = names
+    newArray.forEach((element) => {
+        element = "Hello, " + element
+    })
+    return newArray
+}
 
 // Given an array of words, return a new array where each word is uppercased
 // and only includes words that are longer than 4 characters. Do this using
@@ -65,6 +71,14 @@ function createGreetings(names) {}
 // Ex.:
 //   loudLongWords(['apple', 'pear', 'cake', 'pinata']);
 //   => ['APPLE', 'PINATA']
-function loudLongWords(words) {}
+function loudLongWords(words) {
+    let newArray = []
+    words.forEach((element) => {
+        if(element.length > 4){
+            newArray.push(element.toUpperCase)
+        }
+    })
+    return newArray
+}
 
 export { addNums, createGreetings, evens, giveMeTwo, loudLongWords, max };
