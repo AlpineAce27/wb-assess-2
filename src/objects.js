@@ -90,15 +90,20 @@ const EN_PIRATE_LOOKUP = {
 };
 
 function translateToPirateTalk(phrase) {
+
   //go through the string, and split it between every space to make an array of words
+  let phraseArray = phrase.split(" ")
 
   //check each element of the array to see if it matches any of the key names in the EN_PIRATE_LOOKUP object
-
-  //if it matches a key, replace that word with the value of the matching key
-
-  //if it doesn't match a key, leave the word as is
-
-  //after you've checked every word, combine the array back into a string and return the new string
+  phraseArray.forEach((element) => {
+    EN_PIRATE_LOOKUP.forEach((key) => {
+      //if it matches a key, replace that word with the value of the matching key
+      if(element === key)
+        phraseArray.element = EN_PIRATE_LOOKUP.key
+    })
+  })
+   //after you've checked every word, combine the array back into a string and return the new string
+   return(phraseArray.join(" "))
 }
 
 // Return the number of occurrences of each word in a string.
@@ -108,7 +113,13 @@ function translateToPirateTalk(phrase) {
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
-function wordCount(str) {}
+function wordCount(str) {
+  //break a phrase into an array of words
+  //go through the words one by one
+  //if it does'nt exist in the object yet, create a new property with the word and the count at 1
+  //if it already exists in the object, add one to that words count
+  //return the object
+}
 
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
@@ -130,7 +141,13 @@ function wordCount(str) {}
 //     }
 //   }, 1);
 //   => true
-function isBugAvailable(bug, month) {}
+function isBugAvailable(bug, month) {
+  //search the bug object for the months property
+  //check to see if this months array contains the input given by the user
+
+  //if the array does contain the month, return true
+  //else return false
+}
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
