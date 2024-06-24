@@ -57,6 +57,7 @@ const addItem = (event) => {
     const newListItem = document.createElement('li')
     newListItem.innerText = "Item"
     itemList.appendChild(newListItem)
+    console.log("item added to list")
 }
 
 doubleClick.addEventListener(`dblclick`, addItem)
@@ -75,11 +76,11 @@ const redBtn = document.querySelector('#red')
 const coloredText = document.querySelectorAll('.changes-colors')
 
 const changeToBlue = () => {
-    coloredText.style = "color: blue"
+    coloredText.style.color = "blue"
 }
 
 const changeToRed = () => {
-    coloredText.stylen= "color: red"
+    coloredText.style.color = "red"
 }
 
 blueBtn.addEventListener('click', changeToBlue)
@@ -100,12 +101,20 @@ redBtn.addEventListener('click', changeToRed)
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-const factorialBtn = document.querySelector('#submit')
+const factorialBtn = document.querySelector('#factorial')
 
 const calculateFactorial = () => {
     //pull the value from the field and parse it into an integer
+    let number = document.querySelector('#factorial-input').value.toNumber()
+    console.log(number)
     //calculate the factorial of that integer
+    let total = 1
+    for(i=number; i>0; i--){
+        total = total*number
+    }
     //put that value into the output text field
+    document.querySelector('#result').innerText = number.toString()
+
 }
 
 factorialBtn.addEventListener('click', calculateFactorial)
