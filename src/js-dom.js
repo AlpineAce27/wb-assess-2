@@ -107,7 +107,7 @@ redBtn.addEventListener('click', changeToRed)
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-const factorialBtn = document.querySelector('#factorial')
+const factorialBtn = document.querySelector('#calculate-factorial')
 
 const calculateFactorial = () => {
     //pull the value from the field and parse it into an integer
@@ -119,7 +119,7 @@ const calculateFactorial = () => {
         total = total*number
     }
     //put that value into the output text field
-    document.querySelector('#result').innerText = number.toString()
+    document.querySelector('#result').innerText = number
 
 }
 
