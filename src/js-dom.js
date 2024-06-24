@@ -8,7 +8,17 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+const logButton = document.querySelector('#auth')
+
+const changeLogText = () => {
+    if(logButton.innerText === "Log in"){
+        logButton.innerText = "Log out"
+    }
+    else{
+        logButton.innerText = "Log in"
+    }
+}
+logButton.addEventListener('click', changeLogText)
 
 // Send an alert
 //
@@ -17,8 +27,14 @@
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+const alertButton = document.querySelector('#alert-button')
 
+const sendAlert = () => {
+    let alertMessage = document.querySelector('#alert-message')
+    alert(alertMessage.innerText)
+}
+
+alertButton.addEventListener('click', sendAlert)
 // Add an item
 //
 // This is a pretty silly feature -- when a user clicks on the
@@ -34,7 +50,16 @@
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+const doubleClick = document.querySelector('#item-adder')
+const itemList = document.querySelector("#list")
+
+const addItem = (event) => {
+    const newListItem = document.createElement('li')
+    newListItem.innerText = "Item"
+    itemList.appendChild(newListItem)
+}
+
+doubleClick.addEventListener(`dblclick`, addItem)
 
 // Change colors
 //
