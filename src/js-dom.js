@@ -75,12 +75,18 @@ const blueBtn = document.querySelector('#blue')
 const redBtn = document.querySelector('#red')
 const coloredText = document.querySelectorAll('.changes-colors')
 
+
 const changeToBlue = () => {
-    coloredText.style.color = "blue"
+    coloredText.forEach(element => {
+        element.style.color = "blue"
+    })
+    
 }
 
 const changeToRed = () => {
-    coloredText.style.color = "red"
+    coloredText.forEach(element=> {
+        element.style.color = "red"
+    })
 }
 
 blueBtn.addEventListener('click', changeToBlue)
