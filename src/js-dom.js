@@ -30,11 +30,11 @@ logButton.addEventListener('click', changeLogText)
 const alertButton = document.querySelector('#alert-button')
 
 const sendAlert = () => {
-    let alertMessage = document.querySelector('#alert-message')
-    alert(alertMessage.innerText)
+    let alertMessage = document.querySelector('#alert-message').value
+    alert(alertMessage)
 }
-
 alertButton.addEventListener('click', sendAlert)
+
 // Add an item
 //
 // This is a pretty silly feature -- when a user clicks on the
@@ -70,7 +70,20 @@ doubleClick.addEventListener(`dblclick`, addItem)
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
+const blueBtn = document.querySelector('#blue')
+const redBtn = document.querySelector('#red')
+const coloredText = document.querySelectorAll('.changes-colors')
+
+const changeToBlue = () => {
+    coloredText.style = "color: blue"
+}
+
+const changeToRed = () => {
+    coloredText.stylen= "color: red"
+}
+
+blueBtn.addEventListener('click', changeToBlue)
+redBtn.addEventListener('click', changeToRed)
 
 // Calculate factorial
 //
@@ -87,8 +100,15 @@ doubleClick.addEventListener(`dblclick`, addItem)
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-/// TODO: replace this with your code
+const factorialBtn = document.querySelector('#submit')
 
+const calculateFactorial = () => {
+    //pull the value from the field and parse it into an integer
+    //calculate the factorial of that integer
+    //put that value into the output text field
+}
+
+factorialBtn.addEventListener('click', calculateFactorial)
 // Validate a form
 //
 // This form is used to collect word recommendations from users. However, it
