@@ -111,15 +111,16 @@ const factorialBtn = document.querySelector('#calculate-factorial')
 
 const calculateFactorial = () => {
     //pull the value from the field and parse it into an integer
-    let number = document.querySelector('#factorial-input').value.toNumber()
-    console.log(number)
+    let number = document.querySelector('#factorial-input').value
+    number = parseInt(number)
+    ///console.log(typeof(number))
     //calculate the factorial of that integer
     let total = 1
     for(i=number; i>0; i--){
-        total = total*number
+        total = total*i
     }
     //put that value into the output text field
-    document.querySelector('#result').innerText = number
+    document.querySelector('#result').innerText = total
 
 }
 
@@ -139,4 +140,23 @@ factorialBtn.addEventListener('click', calculateFactorial)
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
 
-/// TODO: replace this with your code
+const wordCheckerButton = document.querySelector('#feedback')
+const feedbackResult = document.querySelector(".form-feedback")
+
+const checkFeedback = () => {
+    str = document.querySelector('#word').value
+    console.log(str)
+    let strArray = str.split('')
+    console.log(strArray)
+    if(strArray.length < 3){
+        feedbackResult.innerText = "The word must be at least 4 characters long"
+        feedbackResult.style.color = "red"
+        
+    }
+    else{
+        feedbackResult.innerText = "Thanks for your submission!"
+        feedbackResult.style.color = "green"
+    }
+}
+
+wordCheckerButton.addEventListener('sumbit', checkFeedback)
