@@ -138,25 +138,29 @@ factorialBtn.addEventListener('click', calculateFactorial)
 //
 // If the text is less than three characters long, change
 // the feedback text to say "The word must be at least 4 characters long." and
-// change the color of the text to red..
+// change the color of the text to re
 
-const wordCheckerButton = document.querySelector('#feedback')
-const feedbackResult = document.querySelector(".form-feedback")
+const myForm = document.getElementById('recommend-word')
 
 const checkFeedback = () => {
+    console.log("CheckFeedback function ran")
     str = document.querySelector('#word').value
     console.log(str)
     let strArray = str.split('')
     console.log(strArray)
     if(strArray.length < 3){
-        feedbackResult.innerText = "The word must be at least 4 characters long"
-        feedbackResult.style.color = "red"
-        
+        console.log("must be at least 4 characters: red")
+        document.querySelector(".form-feedback").innerText = "The word must be at least 4 characters long"
+        document.querySelector(".form-feedback").style.color = "red"
     }
     else{
-        feedbackResult.innerText = "Thanks for your submission!"
-        feedbackResult.style.color = "green"
+        console.log("Thanks for your submission: green")
+        document.querySelector(".form-feedback").innerText = "Thanks for your submission!"
+        document.querySelector(".form-feedback").style.color = "green"
     }
 }
 
-wordCheckerButton.addEventListener('sumbit', checkFeedback)
+myForm.addEventListener('submit', (event) => {
+event.preventDefault()
+checkFeedback()
+})
